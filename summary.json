@@ -1,0 +1,85 @@
+{
+    "shapefiles": [
+        {
+            "type": "120h 0.5 Degree Wind Speed Probabilities", 
+            "basin": "Multiple", 
+            "link": "http://www.nhc.noaa.gov/gis/forecast/archive/wsp_120hrhalfDeg_latest.zip"
+        }, 
+        {
+            "type": "120h 0.1 Degree Wind Speed Probabilities", 
+            "basin": "Multiple", 
+            "link": "http://www.nhc.noaa.gov/gis/forecast/archive/wsp_120hrtenthDeg_latest.zip"
+        }, 
+        {
+            "type": "Advisory #018 Forecast", 
+            "basin": "Pacific", 
+            "link": "http://www.nhc.noaa.gov/gis/forecast/archive/ep012015_5day_018.zip", 
+            "atcf-code": "EP012015"
+        }, 
+        {
+            "type": "Advisory #018 Wind Field", 
+            "basin": "Pacific", 
+            "link": "http://www.nhc.noaa.gov/gis/forecast/archive/ep012015_fcst_018.zip", 
+            "atcf-code": "EP012015"
+        }, 
+        {
+            "type": "Preliminary Best Track", 
+            "basin": "Pacific", 
+            "link": "http://www.nhc.noaa.gov/gis/best_track/ep012015_best_track.zip", 
+            "atcf-code": "EP012015"
+        }, 
+        {
+            "type": "Advisory #004 Forecast", 
+            "basin": "Pacific", 
+            "link": "http://www.nhc.noaa.gov/gis/forecast/archive/ep022015_5day_004.zip", 
+            "atcf-code": "EP022015"
+        }, 
+        {
+            "type": "Advisory #004 Wind Field", 
+            "basin": "Pacific", 
+            "link": "http://www.nhc.noaa.gov/gis/forecast/archive/ep022015_fcst_004.zip", 
+            "atcf-code": "EP022015"
+        }, 
+        {
+            "type": "Preliminary Best Track", 
+            "basin": "Pacific", 
+            "link": "http://www.nhc.noaa.gov/gis/best_track/ep022015_best_track.zip", 
+            "atcf-code": "EP022015"
+        }
+    ], 
+    "summaries": {
+        "Atlantic": [], 
+        "Pacific": [
+            {
+                "wallet": "EP1", 
+                "name": "ANDRES", 
+                "atcf-code": "EP012015", 
+                "headline": " ...ANDRES WEAKENS A BIT...", 
+                "position": {
+                    "lat": 15.7, 
+                    "lng": -120.3
+                }, 
+                "basin": "Pacific", 
+                "pressure": "943 mb", 
+                "type": "HURRICANE", 
+                "wind": "140 mph", 
+                "movement": "WNW at 6 mph"
+            }, 
+            {
+                "wallet": "EP2", 
+                "name": "BLANCA", 
+                "atcf-code": "EP022015", 
+                "headline": " ...TROPICAL STORM BLANCA FORMS... ...EXPECTED TO STRENGTHEN QUICKLY...", 
+                "position": {
+                    "lat": 13.5, 
+                    "lng": -104.1
+                }, 
+                "basin": "Pacific", 
+                "pressure": "1004 mb", 
+                "type": "TROPICAL STORM", 
+                "wind": "40 mph", 
+                "movement": "NW at 5 mph"
+            }
+        ]
+    }
+}
