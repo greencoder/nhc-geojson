@@ -7,14 +7,17 @@ import sys
 import xml.etree.ElementTree
 
 def get_node_text(parent_node, tag_name, default=''):
+    """Wrapper to safely extract the text from a node."""
     node = parent_node.find(tag_name)
     if node is not None:
         return node.text
+    else:
+        return default
 
 if __name__ == '__main__':
 
     # Create a place to store the data
-    summaries = { 'Atlantic': [], 'Pacific': [] }
+    summaries = {'Atlantic': [], 'Pacific': []}
     shapefiles = []
 
     # Grab the feed contents for the Atlantic and Pacific basins
@@ -45,7 +48,7 @@ if __name__ == '__main__':
             # We don't want any kmz or xml links, we only care about shapefiles and summaries
             if '[kmz]' in title or '[xml]' in title:
                 continue
-    
+
             # Try to turn the pub date string into a properly-formatted ISO8601 date
             pub_date = datetime.datetime.strptime(pub_date_str, '%a, %d %b %Y %H:%M:%S GMT')
             pub_date = pub_date.replace(tzinfo=pytz.timezone('UTC'))
@@ -53,7 +56,7 @@ if __name__ == '__main__':
 
             # If it's a summary, capture the additional data points
             if title.startswith('Summary'):
-        
+
                 # All of the nodes will be namespaced
                 namespace = '{http://www.nhc.noaa.gov}'
 
@@ -92,8 +95,8 @@ if __name__ == '__main__':
                         'atcf-code': storm_atcf,
                         'basin': basin_name,
                         'position': {
-                            'lat': storm_lat, 
-                            'lng': storm_lng ,
+                            'lat': storm_lat,
+                            'lng': storm_lng,
                         },
                         'type': storm_type,
                         'name': storm_name,
@@ -106,11 +109,11 @@ if __name__ == '__main__':
 
             # If it's a shapefile associated with a specific storm, parse it
             if '[shp]' in title:
-            
+
                 shapefile_type = title.split(" [shp]")[0]
                 shapefile_storm = title.split('[shp] - ')[-1]
 
-                # The shapefile might be for a specific storm or for 
+                # The shapefile might be for a specific storm or for
                 # 'Multiple Basins', so figure that out and store accordingly
 
                 # It's for multiple storms
@@ -123,10 +126,10 @@ if __name__ == '__main__':
 
                 # It's a specfic storm
                 else:
-            
+
                     # Try to extract the atcf code from the title, it will look like
                     # this: Advisory #018 Forecast [shp] - Hurricane ANDRES (EP1/EP012015)
-                    regex = re.search('\([\w\d]+\/(?P<code>.*)\)', title)
+                    regex = re.search(r'([\w\d]+\/(?P<code>.*))', title)
                     if regex and regex.group('code'):
                         atcf_code = regex.group('code')
                     else:
@@ -140,7 +143,7 @@ if __name__ == '__main__':
                     })
 
     # Create an output dictionary we can write to a JSON file
-    output = { 
+    output = {
         'summaries': summaries,
         'shapefiles': shapefiles,
     }
@@ -148,4 +151,3 @@ if __name__ == '__main__':
     # The XML parsing is done, write out our JSON
     with open('summary.json', 'w') as f:
         f.write(json.dumps(output, indent=4))
-    

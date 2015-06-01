@@ -1,39 +1,37 @@
 import os
 import json
 import requests
-import shapefile
 import shutil
 import StringIO
-import sys
 import tempfile
 import zipfile
 
 if __name__ == '__main__':
-    
+
     # Store a reference to the current directory
-    current_dir = os.path.dirname(os.path.realpath(__file__))
-    output_dir = os.path.join(current_dir, 'output')
-    
-    # If the output directory alrady exists, remove it. The geojson 
+    CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
+    OUTPUT_DIR = os.path.join(CURRENT_DIR, 'output')
+
+    # If the output directory alrady exists, remove it. The geojson
     # driver cannot overwrite existing files
-    if os.path.exists(output_dir):
-        shutil.rmtree(output_dir)
+    if os.path.exists(OUTPUT_DIR):
+        shutil.rmtree(OUTPUT_DIR)
 
     # Create the output directory
-    os.makedirs(output_dir)
+    os.makedirs(OUTPUT_DIR)
 
     # Open the JSON file we already created
     with open('summary.json', 'r') as f:
         data = json.loads(f.read())
-    
+
     # Get all the shapefile URLs
     links = []
     for item in data['shapefiles']:
         links.append(item['link'])
-    
+
     # Iterate over the links
     for index, link in enumerate(links):
-        
+
         print "Fetching Shapefile (%d/%d):\n%s" % (index+1, len(links), link)
 
         # Request the file
@@ -43,7 +41,7 @@ if __name__ == '__main__':
         # Extract the file to a temporary directory
         temp_dir = tempfile.mkdtemp()
         zf.extractall(temp_dir)
-    
+
         # Get all the shapefile names
         shapefile_names = [f for f in os.listdir(temp_dir) if f.endswith('.shp')]
 
@@ -55,11 +53,11 @@ if __name__ == '__main__':
 
             # Get the base file name
             geojson_filename = os.path.basename(filename) + '.geojson'
-            geojson_filepath = os.path.join(output_dir, geojson_filename)
-            
+            geojson_filepath = os.path.join(OUTPUT_DIR, geojson_filename)
+
             # Run a command line script to convert to GeoJSON
             cmd = 'ogr2ogr -f GeoJSON -t_srs crs:84 %s %s' % (geojson_filepath, filepath)
             os.system(cmd)
-            
+
         # Clean up the temporary directory
         shutil.rmtree(temp_dir)

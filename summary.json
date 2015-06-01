@@ -14,37 +14,37 @@
             "type": "Advisory #018 Forecast", 
             "basin": "Pacific", 
             "link": "http://www.nhc.noaa.gov/gis/forecast/archive/ep012015_5day_018.zip", 
-            "atcf-code": "EP012015"
+            "atcf-code": "EP012015)"
         }, 
         {
             "type": "Advisory #018 Wind Field", 
             "basin": "Pacific", 
             "link": "http://www.nhc.noaa.gov/gis/forecast/archive/ep012015_fcst_018.zip", 
-            "atcf-code": "EP012015"
+            "atcf-code": "EP012015)"
         }, 
         {
             "type": "Preliminary Best Track", 
             "basin": "Pacific", 
             "link": "http://www.nhc.noaa.gov/gis/best_track/ep012015_best_track.zip", 
-            "atcf-code": "EP012015"
+            "atcf-code": "EP012015)"
         }, 
         {
             "type": "Advisory #004 Forecast", 
             "basin": "Pacific", 
             "link": "http://www.nhc.noaa.gov/gis/forecast/archive/ep022015_5day_004.zip", 
-            "atcf-code": "EP022015"
+            "atcf-code": "EP022015)"
         }, 
         {
             "type": "Advisory #004 Wind Field", 
             "basin": "Pacific", 
             "link": "http://www.nhc.noaa.gov/gis/forecast/archive/ep022015_fcst_004.zip", 
-            "atcf-code": "EP022015"
+            "atcf-code": "EP022015)"
         }, 
         {
             "type": "Preliminary Best Track", 
             "basin": "Pacific", 
             "link": "http://www.nhc.noaa.gov/gis/best_track/ep022015_best_track.zip", 
-            "atcf-code": "EP022015"
+            "atcf-code": "EP022015)"
         }
     ], 
     "summaries": {
