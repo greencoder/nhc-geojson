@@ -1,5 +1,5 @@
 #NHC Shapefile to GeoJSON
-Converts the National Hurricane Center (NHC) shapefiles for current storms to GeoJSON files.
+Converts the [National Hurricane Center](http://nhc.noaa.gov) shapefiles for current storms to GeoJSON files.
 
 ## Usage
 
@@ -17,4 +17,4 @@ $ python get_shapefiles.py
 
 ## Requirements
 
-You must have (http://www.gdal.org/ogr2ogr.html)ogr2ogr installed. It's part of the GDAL library.
+You must have [ogr2ogr](http://www.gdal.org/ogr2ogr.html) installed. It's part of the GDAL library.
