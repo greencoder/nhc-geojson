@@ -17,4 +17,11 @@ $ python get_shapefiles.py
 
 ## Requirements
 
-You must have [ogr2ogr](http://www.gdal.org/ogr2ogr.html) installed. It's part of the GDAL library.
+You must have the command-line tool [ogr2ogr](http://www.gdal.org/ogr2ogr.html) installed. It's part of the GDAL library.
+
+The Python modules are in [requirements.txt](requirements.txt). Install them with pip:
+
+```
+$ pip install -r requirements.txt
+```
+
